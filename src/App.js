@@ -16,7 +16,7 @@ class App extends Component {
       educationDetails: {
         schoolName: '',
         areaOfStudy: '',
-        date: ''
+        graduationYear: ''
       },
       experienceDetails: {
         companyName: '',
@@ -33,13 +33,14 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (e, section, field) => {
+  handleChange = (event, section, field) => {
     this.setState({
       ...this.state,
       [section]: {
-        [field]: e.target.value
+        ...this.state[section],
+        [field]: event.target.value
       }
-    });
+    })
   };
 
   onClickBtn() {
@@ -47,13 +48,13 @@ class App extends Component {
   }
 
   render() {
-    const { personalDetails } = this.state
+    const { personalDetails, educationDetails, experienceDetails } = this.state
     return (
       <>
         <header><h1>CV application</h1></header>
         <main>
-          <Form personalDetails={personalDetails} handleChange={this.handleChange} />
-          <DisplayCV title="CV display" personalDetails={personalDetails} />
+          <Form personalDetails={personalDetails} educationDetails={educationDetails} experienceDetails={experienceDetails} handleChange={this.handleChange} />
+          <DisplayCV title="CV display" personalDetails={personalDetails} educationDetails={educationDetails} experienceDetails={experienceDetails} />
         </main>
       </>
     )
