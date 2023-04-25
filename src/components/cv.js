@@ -6,13 +6,13 @@ class DisplayCV extends Component {
     }
 
     render() {
-        const { title, personalDetails } = this.props
+        const { title, personalDetails, educationDetails, experienceDetails } = this.props
         return (
-            <div>
+            <div className="cv-wrapper">
                 <h2>{title}</h2>
                 <PersonalSection personalDetails={personalDetails} />
-                <EducationSection />
-                <ExperienceSection />
+                <EducationSection educationDetails={educationDetails} />
+                <ExperienceSection experienceDetails={experienceDetails} />
             </div>
         )
     }
@@ -30,6 +30,8 @@ class PersonalSection extends Component {
             <section>
                 <h3>Personal Details</h3>
                 <p>name: {this.props.personalDetails.name}</p>
+                <p>email: {this.props.personalDetails.email}</p>
+                <p>phone: {this.props.personalDetails.phone}</p>
             </section>
         )
     }
@@ -44,6 +46,9 @@ class EducationSection extends Component {
         return (
             <section>
                 <h3>Education Details</h3>
+                <p>School: {this.props.educationDetails.schoolName}</p>
+                <p>Area of study: {this.props.educationDetails.areaOfStudy}</p>
+                <p>Year of graduation: {this.props.educationDetails.graduationYear}</p>
             </section>
         )
     }
@@ -58,6 +63,12 @@ class ExperienceSection extends Component {
         return (
             <section>
                 <h3>Experience Details</h3>
+                <p>Company name: {this.props.experienceDetails.companyName}</p>
+                <p>Position title: {this.props.experienceDetails.positionTitle}</p>
+                <p>Main tasks: {this.props.experienceDetails.mainTasks}</p>
+                <p>Date from: {this.props.experienceDetails.from}</p>
+                <p>Date until: {this.props.experienceDetails.until}</p>
+
             </section>
         )
     }
