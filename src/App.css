@@ -19,3 +19,61 @@ main {
 h1 {
     text-align: center;
 }
+
+.form-wrapper,
+.cv-wrapper {
+    width: 40%;
+}
+
+/* Form styles */
+form {
+    border: 1px solid black;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+input,
+textarea {
+    appearance: none;
+    border: none;
+}
+
+form input,
+form button {
+    font: inherit;
+}
+
+form input {
+    display: block;
+    border: 1px solid rgb(158, 155, 155);
+    border-radius: 5px;
+    padding: .2em;
+    margin-top: .5em;
+    width: 100%;
+}
+
+/* form label {
+    margin-bottom: 1em;
+} */
+
+form button {
+    padding: .5em 1em;
+    border: none;
+    border-radius: 5px;
+}
+
+.cv-wrapper {
+    border: 1px solid black;
+    padding: 2em;
+    box-shadow: 2px 2px 2px rgb(201, 197, 197);
+}
