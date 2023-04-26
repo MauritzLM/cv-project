@@ -6,13 +6,13 @@ class DisplayCV extends Component {
     }
 
     render() {
-        const { title, personalDetails, educationDetails, experienceDetails } = this.props
+        const { title, personalDetails, education, experience } = this.props
         return (
             <div className="cv-wrapper">
                 <h2>{title}</h2>
                 <PersonalSection personalDetails={personalDetails} />
-                <EducationSection educationDetails={educationDetails} />
-                <ExperienceSection experienceDetails={experienceDetails} />
+                <EducationSection education={education} />
+                <ExperienceSection experience={experience} />
             </div>
         )
     }
@@ -26,12 +26,13 @@ class PersonalSection extends Component {
     }
 
     render() {
+        const { personalDetails } = this.props;
         return (
             <section>
                 <h3>Personal Details</h3>
-                <p>name: {this.props.personalDetails.name}</p>
-                <p>email: {this.props.personalDetails.email}</p>
-                <p>phone: {this.props.personalDetails.phone}</p>
+                <p>name: {personalDetails[0].name}</p>
+                <p>email: {personalDetails[0].email}</p>
+                <p>phone: {personalDetails[0].phone}</p>
             </section>
         )
     }
@@ -43,12 +44,17 @@ class EducationSection extends Component {
     }
 
     render() {
+        const { education } = this.props;
         return (
             <section>
                 <h3>Education Details</h3>
-                <p>School: {this.props.educationDetails.schoolName}</p>
-                <p>Area of study: {this.props.educationDetails.areaOfStudy}</p>
-                <p>Year of graduation: {this.props.educationDetails.graduationYear}</p>
+                {education.map(item => {
+                    return <div key={item.id}> <p>School: {item.schoolName}</p>
+                        <p>Area of study: {item.areaOfStudy}</p>
+                        <p>Year of graduation: {item.graduationYear}</p>
+                        <hr></hr>
+                    </div>
+                })}
             </section>
         )
     }
@@ -60,15 +66,21 @@ class ExperienceSection extends Component {
     }
 
     render() {
+        const { experience } = this.props;
         return (
+
             <section>
                 <h3>Experience Details</h3>
-                <p>Company name: {this.props.experienceDetails.companyName}</p>
-                <p>Position title: {this.props.experienceDetails.positionTitle}</p>
-                <p>Main tasks: {this.props.experienceDetails.mainTasks}</p>
-                <p>Date from: {this.props.experienceDetails.from}</p>
-                <p>Date until: {this.props.experienceDetails.until}</p>
-
+                {experience.map(item => {
+                    return <div>
+                        <p>Company name: {item.companyName}</p>
+                        <p>Position title: {item.positionTitle}</p>
+                        <p>Main tasks: {item.mainTasks}</p>
+                        <p>Date from: {item.from}</p>
+                        <p>Date until: {item.until}</p>
+                        <hr></hr>
+                    </div>
+                })}
             </section>
         )
     }
