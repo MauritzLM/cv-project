@@ -70,10 +70,24 @@ form button {
     padding: .5em 1em;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn {
+    width: 30%;
+    align-self: end;
+}
+
+.delete-btn {
+    width: 30%;
+    background-color: rgb(202, 79, 79);
+    color: white;
+    align-self: flex-end;
 }
 
 .cv-wrapper {
     border: 1px solid black;
     padding: 2em;
     box-shadow: 2px 2px 2px rgb(201, 197, 197);
+    height: max-content;
 }
