@@ -72,7 +72,7 @@ class ExperienceSection extends Component {
             <section>
                 <h3>Experience Details</h3>
                 {experience.map(item => {
-                    return <div>
+                    return <div key={item.id}>
                         <p>Company name: {item.companyName}</p>
                         <p>Position title: {item.positionTitle}</p>
                         <p>Main tasks: {item.mainTasks}</p>
