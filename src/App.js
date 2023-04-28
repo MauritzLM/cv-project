@@ -28,7 +28,10 @@ class App extends Component {
         mainTasks: '',
         from: '',
         until: ''
-      }]
+      }],
+      formStatus: [
+        { editMode: true }
+      ]
     }
 
     // bind this when passing a method
@@ -37,6 +40,10 @@ class App extends Component {
     this.handleAddBtn = this.handleAddBtn.bind(this)
 
     this.handleDeleteBtn = this.handleDeleteBtn.bind(this);
+
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
+    this.handleFormEdit = this.handleFormEdit.bind(this);
   }
 
   // update state on change
@@ -57,7 +64,8 @@ class App extends Component {
   };
 
   // add education / experience section to state
-  handleAddBtn = (section) => {
+  handleAddBtn = (section, event) => {
+    event.preventDefault();
     this.setState({
       ...this.state,
       // add new section to array
@@ -66,13 +74,40 @@ class App extends Component {
   }
 
   // delete education or experience section
-  handleDeleteBtn = (section, id) => {
+  handleDeleteBtn = (section, id, event) => {
+    event.preventDefault();
     this.setState({
       ...this.state,
       [section]: [...this.state[section]].filter(item => {
         return item.id !== id;
       })
     })
+  }
+
+  // handle submit (set editmode to false)
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      ...this.state,
+      formStatus: [
+        { editMode: false }
+      ]
+    })
+  }
+
+  // handle edit (set edit mode to true)
+  handleFormEdit = () => {
+    this.setState({
+      ...this.state,
+      formStatus: [
+        { editMode: true }
+      ]
+    })
+  }
+
+  // get form status (return edit mode)
+  getFormStatus = () => {
+    return this.state.formStatus[0].editMode
   }
 
   // create new education or experience section
@@ -105,7 +140,7 @@ class App extends Component {
       <>
         <header><h1>CV application</h1></header>
         <main>
-          <Form personalDetails={personalDetails} education={education} experience={experience} handleChange={this.handleChange} handleAddBtn={this.handleAddBtn} handleDeleteBtn={this.handleDeleteBtn} />
+          <Form handleSubmit={this.handleFormSubmit} handleEdit={this.handleFormEdit} getFormStatus={this.getFormStatus} personalDetails={personalDetails} education={education} experience={experience} handleChange={this.handleChange} handleAddBtn={this.handleAddBtn} handleDeleteBtn={this.handleDeleteBtn} />
           <DisplayCV title="CV display" personalDetails={personalDetails} education={education} experience={experience} />
         </main>
       </>
