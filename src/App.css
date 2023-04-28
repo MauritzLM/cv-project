@@ -76,6 +76,7 @@ form button {
 .add-btn {
     width: 30%;
     align-self: end;
+    margin-bottom: 1em;
 }
 
 .delete-btn {
@@ -83,6 +84,10 @@ form button {
     background-color: rgb(202, 79, 79);
     color: white;
     align-self: flex-end;
+}
+
+.editBtn {
+    position: absolute;
 }
 
 .cv-wrapper {
