@@ -4,42 +4,57 @@
 
 html {
     font-size: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    background-color: #89a6bd;
 }
 
 main {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 3em;
 }
 
 h1 {
     text-align: center;
 }
 
+.cv-wrapper h2 {
+    margin-top: 0;
+}
+
 .form-wrapper,
 .cv-wrapper {
-    width: 40%;
+    border: none;
+    background-color: rgb(252, 249, 249);
 }
 
 /* Form styles */
 form {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 2em;
     display: flex;
     flex-direction: column;
-
+    gap: 1em;
 }
 
 fieldset {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-bottom: 2em;
-    padding: 1em;
+    /* margin-bottom: 2em; */
+    padding: 0;
+    border: none;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin: .5em 0;
 }
 
 input,
@@ -55,44 +70,95 @@ form button {
 
 form input {
     display: block;
-    border: 1px solid rgb(158, 155, 155);
-    border-radius: 5px;
-    padding: .2em;
+    border: 1px solid #234E70;
+    /* border-radius: 5px; */
+    padding: .4em;
     margin-top: .5em;
     width: 100%;
 }
 
-/* form label {
-    margin-bottom: 1em;
-} */
+form label {
+    font-style: italic;
+}
 
 form button {
-    padding: .5em 1em;
+    padding: .7em 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(37, 129, 99);
+    color: white;
+}
+
+form button:hover {
+    background-color: rgb(66, 185, 145);
 }
 
 .add-btn {
-    width: 30%;
-    align-self: end;
+    /* padding: .4em 1em; */
+    /* align-self: end; */
     margin-bottom: 1em;
+    color: white;
+    background-color: #234E70;
+    position: relative;
+
 }
 
 .delete-btn {
-    width: 30%;
-    background-color: rgb(202, 79, 79);
+    background-color: rgb(187, 68, 68);
     color: white;
     align-self: flex-end;
 }
 
 .editBtn {
     position: absolute;
+    /* left: 5em;
+    top: 2em; */
+    font: inherit;
+    padding: .5em 1em;
+    z-index: 2;
+    border: none;
+}
+
+.add-btn:hover {
+    background-color: #5e93be;
+}
+
+.delete-btn:hover {
+    background-color: rgb(224, 76, 76);
 }
 
 .cv-wrapper {
-    border: 1px solid black;
+    border: none;
     padding: 2em;
-    box-shadow: 2px 2px 2px rgb(201, 197, 197);
     height: max-content;
+    position: relative;
+}
+
+.detail-field {
+    font-style: italic;
+}
+
+/* Media queries */
+@media screen and (min-width: 800px) {
+    main {
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+
+    .cv-wrapper,
+    .form-wrapper {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .add-btn {
+        align-self: flex-start;
+        position: relative;
+        bottom: 3.5em;
+        margin-bottom: 0;
+    }
 }
