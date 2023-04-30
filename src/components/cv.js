@@ -9,7 +9,7 @@ class DisplayCV extends Component {
         const { title, personalDetails, education, experience } = this.props
         return (
             <div className="cv-wrapper">
-                <h2>{title}</h2>
+                <h2>CV of {personalDetails[0].name}</h2>
                 <PersonalSection personalDetails={personalDetails} />
                 <EducationSection education={education} />
                 <ExperienceSection experience={experience} />
@@ -30,9 +30,9 @@ class PersonalSection extends Component {
         return (
             <section>
                 <h3>Personal Details</h3>
-                <p>name: {personalDetails[0].name}</p>
-                <p>email: {personalDetails[0].email}</p>
-                <p>phone: {personalDetails[0].phone}</p>
+                <p><span className="detail-field">name:</span> {personalDetails[0].name}</p>
+                <p><span className="detail-field">email:</span> {personalDetails[0].email}</p>
+                <p><span className="detail-field">phone:</span> {personalDetails[0].phone}</p>
             </section>
         )
     }
@@ -49,9 +49,10 @@ class EducationSection extends Component {
             <section>
                 <h3>Education Details</h3>
                 {education.map(item => {
-                    return <div key={item.id}> <p>School: {item.schoolName}</p>
-                        <p>Area of study: {item.areaOfStudy}</p>
-                        <p>Year of graduation: {item.graduationYear}</p>
+                    return <div key={item.id}>
+                        <p><span className="detail-field">School:</span> {item.schoolName}</p>
+                        <p><span className="detail-field">Area of study:</span> {item.areaOfStudy}</p>
+                        <p><span className="detail-field">Year of graduation:</span> {item.graduationYear}</p>
                         <hr></hr>
                     </div>
                 })}
@@ -73,11 +74,11 @@ class ExperienceSection extends Component {
                 <h3>Experience Details</h3>
                 {experience.map(item => {
                     return <div key={item.id}>
-                        <p>Company name: {item.companyName}</p>
-                        <p>Position title: {item.positionTitle}</p>
-                        <p>Main tasks: {item.mainTasks}</p>
-                        <p>Date from: {item.from}</p>
-                        <p>Date until: {item.until}</p>
+                        <p><span className="detail-field">Company name: </span> {item.companyName}</p>
+                        <p><span className="detail-field">Position title:</span> {item.positionTitle}</p>
+                        <p><span className="detail-field">Main tasks:</span> {item.mainTasks}</p>
+                        <p><span className="detail-field">Date from:</span> {item.from}</p>
+                        <p><span className="detail-field">Date until:</span> {item.until}</p>
                         <hr></hr>
                     </div>
                 })}
