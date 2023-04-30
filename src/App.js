@@ -141,7 +141,7 @@ class App extends Component {
         <header><h1>CV application</h1></header>
         <main>
           <Form handleSubmit={this.handleFormSubmit} handleEdit={this.handleFormEdit} getFormStatus={this.getFormStatus} personalDetails={personalDetails} education={education} experience={experience} handleChange={this.handleChange} handleAddBtn={this.handleAddBtn} handleDeleteBtn={this.handleDeleteBtn} />
-          <DisplayCV title="CV display" personalDetails={personalDetails} education={education} experience={experience} />
+          <DisplayCV personalDetails={personalDetails} education={education} experience={experience} />
         </main>
       </>
     )
