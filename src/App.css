@@ -5,33 +5,64 @@
 html {
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
-
+    height: 100vh;
 }
 
 body {
-    font-size: 1.7rem;
-    background-color: #89a6bd;
+    font-size: 1.5rem;
+    margin: 0;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+header {
+    background-color: #293b49;
 }
 
 main {
     display: flex;
     flex-direction: column;
     gap: 3em;
+    margin-bottom: 1em;
 }
 
 h1 {
     text-align: center;
+    color: #f5f6f8;
 }
 
 .cv-wrapper h2 {
+    margin: 0;
+    font-size: 4rem;
+    color: #293b49;
+}
+
+h3 {
+    font-size: 2rem;
+    color: #293b49;
     margin-top: 0;
+}
+
+.form-wrapper {
+    background-color: #f5f6f8;
+    /* max-width: 600px; */
 }
 
 .form-wrapper,
 .cv-wrapper {
     border: none;
-    background-color: rgb(252, 249, 249);
+    /* background-color: rgb(252, 249, 249); */
 }
+
+button {
+    cursor: pointer;
+}
+
 
 /* Form styles */
 form {
@@ -55,6 +86,7 @@ legend {
     font-weight: bold;
     font-size: 2.5rem;
     margin: .5em 0;
+    color: #293b49;
 }
 
 input,
@@ -77,32 +109,24 @@ form input {
     width: 100%;
 }
 
-form label {
+/* form label {
     font-style: italic;
-}
+} */
 
 form button {
     padding: .7em 1em;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-weight: bold;
-    background-color: rgb(37, 129, 99);
+    background-color: #234E70;
     color: white;
 }
 
-form button:hover {
-    background-color: rgb(66, 185, 145);
-}
-
 .add-btn {
-    /* padding: .4em 1em; */
-    /* align-self: end; */
     margin-bottom: 1em;
     color: white;
     background-color: #234E70;
     position: relative;
-
 }
 
 .delete-btn {
@@ -113,16 +137,19 @@ form button:hover {
 
 .editBtn {
     position: absolute;
-    /* left: 5em;
-    top: 2em; */
+    right: 1em;
     font: inherit;
+    font-weight: bold;
     padding: .5em 1em;
     z-index: 2;
     border: none;
+    background-color: #234E70;
+    color: white;
 }
 
-.add-btn:hover {
-    background-color: #5e93be;
+form button:hover,
+.editBtn:hover {
+    background-color: #517ea3;
 }
 
 .delete-btn:hover {
@@ -130,14 +157,30 @@ form button:hover {
 }
 
 .cv-wrapper {
-    border: none;
-    padding: 2em;
+    border: 4px solid #ebe7e7;
+    padding: 2.7em;
     height: max-content;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    /* max-width: 550px; */
+}
+
+hr {
+    color: #293b49;
+    width: 100%;
+}
+
+p {
+    font-size: 1.6rem;
 }
 
 .detail-field {
     font-style: italic;
+    font-size: 1.4rem;
+    margin-right: .5em;
+    font-weight: bold;
 }
 
 /* Media queries */
@@ -145,7 +188,6 @@ form button:hover {
     main {
         flex-direction: row;
         justify-content: space-around;
-
     }
 
     .cv-wrapper,

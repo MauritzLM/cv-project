@@ -9,7 +9,8 @@ class DisplayCV extends Component {
         const { title, personalDetails, education, experience } = this.props
         return (
             <div className="cv-wrapper">
-                <h2>CV of {personalDetails[0].name}</h2>
+                <h2>{personalDetails[0].name}</h2>
+                <hr></hr>
                 <PersonalSection personalDetails={personalDetails} />
                 <EducationSection education={education} />
                 <ExperienceSection experience={experience} />
@@ -33,6 +34,7 @@ class PersonalSection extends Component {
                 <p><span className="detail-field">name:</span> {personalDetails[0].name}</p>
                 <p><span className="detail-field">email:</span> {personalDetails[0].email}</p>
                 <p><span className="detail-field">phone:</span> {personalDetails[0].phone}</p>
+                <hr></hr>
             </section>
         )
     }
