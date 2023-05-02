@@ -29,6 +29,7 @@ main {
     flex-direction: column;
     gap: 3em;
     margin-bottom: 1em;
+    padding: 0 .5em;
 }
 
 h1 {
